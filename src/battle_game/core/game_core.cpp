@@ -276,7 +276,10 @@ int GameCore::RandomInt(int low_bound, int high_bound) {
 
 void GameCore::SetScene() {
   AddObstacle<obstacle::Block>(glm::vec2{-3.0f, 4.0f});
-  respawn_points_.emplace_back(glm::vec2{0.0f}, 0.0f);
+  AddObstacle<obstacle::Block>(glm::vec2{-2.0f, -4.5f}, 0.5f);  // Nahida
+  AddObstacle<obstacle::FurinaBlock>(glm::vec2{4.0f, -3.5f}, -0.35f);  // Furina
+  AddObstacle<obstacle::Block3>(glm::vec2{4.0f, 1.0f});     
+    respawn_points_.emplace_back(glm::vec2{0.0f}, 0.0f);
   respawn_points_.emplace_back(glm::vec2{3.0f, 4.0f}, glm::radians(90.0f));
   boundary_low_ = {-10.0f, -10.0f};
   boundary_high_ = {10.0f, 10.0f};

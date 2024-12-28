@@ -18,5 +18,14 @@ class Obstacle : public Object {
   }
 
  protected:
+  template <class BulletType, class... Args>
+  void GenerateBullet(
+      uint32_t id,
+      uint32_t player_id,  // obstacle_index, using "unit" architechture
+                      glm::vec2 position,
+                      float rotation,
+                      float damage_scale,
+                      Args... args);
 };
+
 }  // namespace battle_game

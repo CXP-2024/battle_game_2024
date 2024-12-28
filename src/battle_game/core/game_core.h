@@ -222,4 +222,14 @@ void Unit::GenerateBullet(glm::vec2 position,
   game_core_->PushEventGenerateBullet<BulletType>(
       id_, player_id_, position, rotation, damage_scale, args...);
 }
+template <class BulletType, class... Args>
+void Obstacle::GenerateBullet(uint32_t id,
+                              uint32_t player_id,
+                              glm::vec2 position,
+                              float rotation,
+                              float damage_scale,
+                              Args... args) {
+  game_core_->PushEventGenerateBullet<BulletType>(
+      id, player_id, position, rotation, damage_scale, args...);
+}
 }  // namespace battle_game

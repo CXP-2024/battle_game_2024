@@ -180,7 +180,7 @@ void Furina::FurinaMove(float move_speed, float rotate_angular_speed) {
     if (input_data.key_down[GLFW_KEY_S]) {
       offset.y -= 1.0f;
     }
-    float speed = move_speed * GetSpeedScale();
+    float speed = 2 * move_speed * GetSpeedScale();
     offset *= kSecondPerTick * speed;
     auto new_position =
         position_ + glm::vec2{glm::rotate(glm::mat4{1.0f}, rotation_,
@@ -224,7 +224,7 @@ void Furina::Fire() {
         GenerateBullet<bullet::CannonBall>(
             position_ + Rotate({0.0f, 1.2f}, guys_rotation_),
             guys_rotation_, GetDamageScale(), velocity);
-        fire_count_down_ = 0.01 * kTickPerSecond;  // Fire interval 1 second.
+        fire_count_down_ = 0.1 * kTickPerSecond;  // Fire interval 0.1 second.
       }
     }
   }
